@@ -25,7 +25,7 @@ export default function Dashboard() {
 		{/* Profile */}
 		{tab === 'panel' && <DashboardComp />}
 		{tab === 'profil' && <DashProfile />}
-		{tab === 'gonderiler' && <DashPosts />}
+		{tab === 'gonderilerim' && <DashPosts />}
 		{tab === 'kullanicilar' && <DashUsers />}
 		{tab === 'yorumlar' && <DashComments />}
 

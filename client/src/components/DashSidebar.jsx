@@ -70,7 +70,7 @@ export default function DashSidebar() {
             </Link>
           )}
           {(currentUser.isEditor || currentUser.isAdmin) && (
-            <Link to='/kontrol-paneli?tab=gonderiler'>
+            <Link to='/kontrol-paneli?tab=gonderilerim'>
               <Sidebar.Item
                 active={tab === 'gonderiler'}
                 icon={HiDocumentText}

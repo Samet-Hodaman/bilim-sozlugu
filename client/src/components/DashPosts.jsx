@@ -17,11 +17,12 @@ export default function DashPosts() {
         const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`)
         const data = await res.json()
         if (res.ok){
-          console.log(data.posts[0]);
-          setUserPosts(data.posts)
-          console.log(userPosts);
-          if (data.posts.length < 9) {
-            setShowMore(false)
+          if (data.posts){
+            setUserPosts(data.posts)
+            if (data.posts.length < 9) {
+              setShowMore(false)
+            }
+
           }
         }
       } catch (error) {
@@ -74,7 +75,7 @@ export default function DashPosts() {
 
   return (
     <div className='table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
-      {currentUser.isAdmin && userPosts.length > 0 ? (
+      {(currentUser.isAdmin && userPosts && userPosts.length > 0) ? (
         <>
         <Table hoverable className='shadow-md'>
           <Table.Head>
