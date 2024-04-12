@@ -35,14 +35,14 @@ export default function Header() {
   <Navbar className='border-b-2'>
   	{/* Logo and Bilim Sozlugu side */}
     <Link to='/' className='flex items-center whitespace-nowrap text-sm sm:text-lg font-semibold dark:text-white'>
-			<img src={logoURL} className='w-14 md:w-16 '/>
-			<span className='indent-2.5 text-lg md:text-xl italic'>Bilim Sözlüğü</span>
+			<img src={logoURL} className='w-12 md:w-16 '/>
+			<span className='indent-2.5 text-base md:text-xl italic'>Bilim Sözlüğü</span>
   	</Link>
 
 		<div className='flex items-center gap-3'>
 			{/* Theme change button */}
 			<Button 
-				className='w-12 h-10 sm:inline' 
+				className='w-10 md:w-12 h-10 sm:inline' 
 				color='gray' 
 				pill 
 				onClick={() => {dispatch(toggleTheme()) }}
