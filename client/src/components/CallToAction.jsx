@@ -3,7 +3,7 @@ import { Button } from 'flowbite-react'
 export default function CallToAction() {
   const recipientEmail = 'samet@gmail.com';
   
-  const mailtoUrl = `https://www.gmail.com/mailto:${recipientEmail}`;
+  const mailtoUrl = `https://mail.google.com/mail/u/0/#inbox?compose=CllgCJNstzFcrnlKqrfVgGncFDbKNBhXhfbcTXgpDnBsvsLmqWcWdDNtpJWSjqjmQKCvxjhNNHL`;
   
 
   return (
