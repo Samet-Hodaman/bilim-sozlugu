@@ -94,7 +94,7 @@ export default function CreatePost() {
           <option value='uncategorized'>Kategori seç</option>
           <option value='fizik'>Fizik</option>
           <option value='kimya'>Kimya</option>
-          <option value='biyoloji'>biyoloji</option>
+          <option value='biyoloji'>Biyoloji</option>
         </Select>
       </div>
       <div className='flex gap-4 items-center justify-between border-4 '>

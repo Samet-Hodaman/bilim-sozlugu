@@ -12,6 +12,8 @@ body{
 
 .post-content p{
     margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    text-align: justify;
 }
 
 .post-content h1{
@@ -32,6 +34,7 @@ body{
     font-size: 1.2rem;
     font-family: sans-serif;
     margin: 1.3rem 0;
+    font-weight: 600;
 }
 
 .post-content a{
