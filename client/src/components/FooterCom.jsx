@@ -12,8 +12,8 @@ export default function FooterCom() {
         <div className='grid w-full justify-between sm:flex md:grid-cols-1'>
 
           <div className='mt-5'>
-          {/* Logo */}
-            <Link to='/' className='flex items-center mr-8 whitespace-nowrap text-sm sm:text-lg font-semibold dark:text-white'>
+          {/* Logo and Bilim Sozlugu text */}
+            <Link to='/' className='flex items-center mr-8 whitespace-nowrap text-lg sm:text-xl font-semibold dark:text-white'>
 			        <span className='italic pr-2'>Bilim Sözlüğü</span>
 			        <img src={logoURL} className='w-16 md:w-20 lg:w-20 '/>
   	        </Link>

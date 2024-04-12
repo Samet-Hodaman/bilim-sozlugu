@@ -33,9 +33,10 @@ export default function Header() {
 
   return (
   <Navbar className='border-b-2'>
+  	{/* Logo and Bilim Sozlugu side */}
     <Link to='/' className='flex items-center whitespace-nowrap text-sm sm:text-lg font-semibold dark:text-white'>
 			<img src={logoURL} className='w-14 md:w-16 '/>
-			<span className='indent-2.5 text-md md:text-xl italic'>Bilim Sözlüğü</span>
+			<span className='indent-2.5 text-lg md:text-xl italic'>Bilim Sözlüğü</span>
   	</Link>
 
 		<div className='flex items-center gap-3'>
@@ -91,7 +92,7 @@ export default function Header() {
 					<Link to='/'> Anasayfa </Link>
 				</Navbar.Link>
 				<Navbar.Link active={path === '/hakkinda'} as={'div'}>
-					<Link to='/hakkinda'> Hakkımızda </Link>
+					<Link to='/hakkimizda'> Hakkımızda </Link>
 				</Navbar.Link>
 				<Navbar.Link active={path === '/icerikler'} as={'div'}>
 					<Link to='/icerikler'> Gönderiler </Link>

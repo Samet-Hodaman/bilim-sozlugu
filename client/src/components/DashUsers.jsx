@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Button, Modal, Table } from 'flowbite-react'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import { HiOutlineExclamationCircle } from 'react-icons/hi'
+import { signoutSuccess } from '../redux/user/userSlice'
 
 export default function DashUsers() {
   const { currentUser, access_token } = useSelector((state) => state.user)
@@ -10,6 +11,7 @@ export default function DashUsers() {
   const [ showMore, setShowMore ] = useState(true)
   const [ showModal, setShowModal ] = useState(false)
   const [ userIdToDelete, setUserIdToDelete ] = useState('')
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -26,6 +28,10 @@ export default function DashUsers() {
           setUsers(data.users)
           if (data.users.length < 9) {
             setShowMore(false)
+          }
+        } else {
+          if (data.message === 'TokenExpiredError') {
+            dispatch(signoutSuccess())
           }
         }
       } catch (error) {

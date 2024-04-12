@@ -23,7 +23,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/hakkinda' element={<About />} />
+        <Route path='/hakkimizda' element={<About />} />
         <Route path="/giris-yap" element={<SignIn />} />
         <Route path="/kayit-ol" element={<SignUp />} />
         <Route path='/icerikler' element={<Contents />} />

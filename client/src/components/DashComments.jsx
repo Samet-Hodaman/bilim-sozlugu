@@ -110,7 +110,7 @@ export default function DashComments() {
                 <Table.Cell>
                   {new Date(comment.updatedAt).toLocaleDateString()}
                 </Table.Cell>
-                <Table.Cell onClick={() => handleGoComment(comment)} className='cursor-pointer'>
+                <Table.Cell onClick={() => handleGoComment(comment)} className='cursor-pointer line-clamp-2'>
                   {comment.content}
                 </Table.Cell>
                 <Table.Cell>{comment.numberOfLikes}</Table.Cell>

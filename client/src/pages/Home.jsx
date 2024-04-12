@@ -45,7 +45,7 @@ export default function Home() {
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto '>
         <h1 className='text-3xl font-bold lg:text-6xl'>Bilim Sözlüğüne hoş geldiniz...</h1>
         <p className='text-gray-500 text-xs sm:text-sm'>Buraya harika bir soz gelicek...Buraya harika bir soz gelicek...Buraya harika bir soz gelicek...Buraya harika bir soz gelicek...Buraya harika bir soz gelicek...Buraya harika bir soz gelicek...</p>
-        <Link to='/arama' className='text-xs sm:text-sm text-teal-500 font-bold hover:underline'>
+        <Link to='/icerikler' className='text-sm sm:text-base text-teal-500 font-bold hover:underline'>
           Tüm gönderileri göster
         </Link>
       </div>
