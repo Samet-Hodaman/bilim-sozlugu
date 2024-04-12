@@ -5,6 +5,7 @@ import PostCard from '../components/PostCard'
 
 export default function Home() {
   const [ posts, setPosts ] = useState([])
+  const [ showMore, setShowMore] = useState(true)
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -21,6 +22,23 @@ export default function Home() {
     }
     fetchPosts()
   }, [])
+
+  const handleShowMore = async () => {
+    const startIndex = posts.length
+    try {
+      const res = await fetch(`/api/post/getPosts?startIndex=${startIndex}`)
+      const data = await res.json()
+      if (res.ok){
+        setPosts((prev) => [...prev, ...data.posts])
+        if (data.posts.length < 9) {
+          setShowMore(false)
+        }
+      }
+    
+    } catch (error){
+      console.log(error.message);
+    }
+  }
 
   return (
     <div>
@@ -44,9 +62,13 @@ export default function Home() {
                   <PostCard key={post._id} post={post} />
                 ))}
               </div>
-              <Link to='/arama' className='text-lg text-teal-500 hover:underline text-center'>
-                Tüm gönderileri görüntüle
-              </Link>
+              {
+                showMore && (
+                  <button onClick={handleShowMore} className='w-full text-lg text-teal-500 self-center py-2 hover:underline focus:border-none'>
+                    Daha fazla...
+                  </button>
+                )
+              }
             </div>
           )
         }
