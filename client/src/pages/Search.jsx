@@ -20,20 +20,22 @@ export default function Search() {
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search)
-    const searchTermFromUrl = urlParams.get('searchTerm')
-    const sortFromUrl = urlParams.get('sort')
-    const categoryFromUrl = urlParams.get('category')
-    const authorFromUrl = urlParams.get('author')
+    const searchTermFromUrl = urlParams.get('searchTerm') || ''
+    const sortFromUrl = urlParams.get('sort') || 'desc'
+    const authorFromUrl = urlParams.get('author') || ''
+    let categoryFromUrl = urlParams.get('category') || ''
 
-    if (searchTermFromUrl || sortFromUrl || categoryFromUrl || authorFromUrl) {
-      setSidebarData((prevData) => ({
-        ...prevData,
-        searchTerm: searchTermFromUrl || "",
-        sort: sortFromUrl || "desc",
-        category: categoryFromUrl || "",
-        author: authorFromUrl || "",
-      }));
+    if (authorFromUrl && !categoryFromUrl) {
+      const category = AUTHOR_LIST.find((author) => author.name === authorFromUrl)?.category || ''
+      categoryFromUrl = category
     }
+
+    setSidebarData({
+      searchTerm: searchTermFromUrl,
+      sort: sortFromUrl,
+      category: categoryFromUrl,
+      author: authorFromUrl,
+    })
 
     const fetchPosts = async () => {
       setLoading(true)
@@ -52,23 +54,10 @@ export default function Search() {
     fetchPosts()
   },[location.search])
 
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setSidebarData((prevData) => ({
-      ...prevData,
-      [id]: value,
-    }));
+  const handleChange = async (e) => {
+    const { id, value } = e.target
+    setSidebarData((prevData) => ({ ...prevData, [id]: value }))
   }
-
-  const buildSearchParams = (params) => {
-    const urlParams = new URLSearchParams();
-    for (const [key, value] of Object.entries(params)) {
-      if (value) {
-        urlParams.set(key, value);
-      }
-    }
-    return urlParams;
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -79,12 +68,12 @@ export default function Search() {
       author: sidebarData.author || null,
     };
   
-    const urlParams = buildSearchParams(searchParams);
-    const searchQuery = urlParams.toString();
-  
-    console.log("Handling submission...");
-    console.log(searchQuery);
-  
+    const urlParams = new URLSearchParams()
+    Object.entries(searchParams).forEach(([key, value]) => {
+      if (value) urlParams.set(key, value)
+    })
+
+    const searchQuery = urlParams.toString()
     navigate(`/ara?${searchQuery}`);
   }
 
