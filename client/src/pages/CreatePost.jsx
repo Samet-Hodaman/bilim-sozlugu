@@ -8,7 +8,7 @@ import { CircularProgressbar } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 import { useNavigate } from 'react-router-dom'
 import { useSelector} from 'react-redux'
-
+import { AUTHOR_LIST } from '../utils/consts.js'
 
 export default function CreatePost() {
   const { access_token } = useSelector(state => state.user)
@@ -83,12 +83,12 @@ export default function CreatePost() {
     <h1 className='text-center text-3xl my-7 font-semibold'>Gönderi oluştur</h1>
     <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
       <div className='flex flex-col gap-4 sm:flex-row justify-between'>
-        <TextInput 
-          type='text' 
-          placeholder='Başlık' 
-          required id='title' 
-          className='flex-1' 
-          onChange={(e) => setFormData({ ...formData, title: e.target.value })}  
+        <TextInput
+          type='text'
+          placeholder='Başlık'
+          required id='title'
+          className='flex-1'
+          onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         />
         <Select onChange={(e) => setFormData({ ...formData, category: e.target.value})}>
           <option value='uncategorized'>Kategori seç</option>
@@ -97,19 +97,20 @@ export default function CreatePost() {
           <option value='biyoloji'>Biyoloji</option>
         </Select>
       </div>
-      <div className='flex gap-4 items-center justify-between border-4 '>
-        <FileInput 
-          type='file' 
-          accept='image/*' 
-          onChange={(e) => setFile(e.target.files[0])}/>
-        <Button 
-          type='button' 
-          gradientDuoTone='purpleToPink' 
-          size='sm' 
-          outline
-          onClick={handleUpdloadImage}
-          disabled={imageUploadProgress}  
-        >
+      <div className='flex flex-col gap-4 sm:flex-row justify-between'>
+        <div className='flex flex-1 w-full justify-between border-4 rounded-lg'>
+          <FileInput
+            type='file'
+            accept='image/*'
+            onChange={(e) => setFile(e.target.files[0])}/>
+          <Button 
+            type='button' 
+            gradientDuoTone='purpleToPink' 
+            size='sm'
+            outline
+            onClick={handleUpdloadImage}
+            disabled={imageUploadProgress}  
+          >
           {imageUploadProgress ? (
             <div className='w-16 h-16'>
               <CircularProgressbar
@@ -118,7 +119,18 @@ export default function CreatePost() {
               />
             </div>
           ) : ( 'Resim Yükle' )}
-        </Button>
+          </Button>
+        </div>
+        <Select onChange={(e) => setFormData({ ...formData, author: e.target.value })} className='min-w-36'>
+          <option value='uncategorized'>Yazar seç</option>
+          {
+            AUTHOR_LIST.map((author) => {
+              return author.category === formData.category ? (
+                <option key={author.name} value={author.name}>{author.name}</option>
+              ) : null
+            })
+          }
+        </Select>
       </div>
       {imageUploadError && <Alert color='failure'>{imageUploadError}</Alert>}
       {formData.image && (

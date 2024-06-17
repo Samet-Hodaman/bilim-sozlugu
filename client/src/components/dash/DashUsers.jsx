@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Button, Modal, Table } from 'flowbite-react'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import { HiOutlineExclamationCircle } from 'react-icons/hi'
-import { signoutSuccess } from '../redux/user/userSlice'
+import { signoutSuccess } from '../../redux/user/userSlice'
 
 export default function DashUsers() {
   const { currentUser, access_token } = useSelector((state) => state.user)

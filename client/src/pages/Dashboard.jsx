@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
-import DashSidebar from '../components/DashSidebar'
-import DashProfile from '../components/DashProfile'
-import DashPosts from "../components/DashPosts"
-import DashUsers from "../components/DashUsers"
-import DashComments from "../components/DashComments"
-import DashboardComp from "../components/DashboardComp"
+import DashSidebar from '../components/dash/DashSidebar'
+import DashProfile from '../components/dash/DashProfile'
+import DashPosts from "../components/dash/DashPosts"
+import DashUsers from "../components/dash/DashUsers"
+import DashComments from "../components/dash/DashComments"
+import DashboardComp from "../components/dash/DashboardComp"
+import DashMail from "../components/dash/DashMail"
 
 export default function Dashboard() {
   const location = useLocation()
@@ -28,7 +29,7 @@ export default function Dashboard() {
 		{tab === 'gonderilerim' && <DashPosts />}
 		{tab === 'kullanicilar' && <DashUsers />}
 		{tab === 'yorumlar' && <DashComments />}
-
+		{tab === 'notlarım' && <DashMail />}
   </div>
   )
 }

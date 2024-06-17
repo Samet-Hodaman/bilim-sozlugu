@@ -14,6 +14,8 @@ export default function Home() {
         const data = await res.json()
         if (res.ok) {
           setPosts(data.posts);
+          if (posts && posts.length < 9)
+            setShowMore(false)
         }
       } catch (error) {
         console.log(error.message);
@@ -42,8 +44,13 @@ export default function Home() {
 
   return (
     <div>
+      
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto '>
+      <div className='flex flex-row'>
         <h1 className='text-3xl font-bold lg:text-6xl'>Bilim Sözlüğüne hoş geldiniz...</h1>
+        <img src='/src/assets/hexagon.png' alt='img'/>
+      </div>
+      {/**
         <p className='text-gray-500 text-xs sm:text-sm'>Buraya harika bir soz gelicek...Buraya harika bir soz gelicek...Buraya harika bir soz gelicek...Buraya harika bir soz gelicek...Buraya harika bir soz gelicek...Buraya harika bir soz gelicek...</p>
         <Link to='/icerikler' className='text-sm sm:text-base text-teal-500 font-bold hover:underline'>
           Tüm gönderileri göster
@@ -72,11 +79,14 @@ export default function Home() {
             </div>
           )
         }
-      </div>
+      
 
       <div className='p-3 max-w-7xl mx-auto bg-amber-100 dark:bg-slate-700'>
         <CallToAction />
       </div>
+       */}
+      </div>
+
     </div>
   )
 }

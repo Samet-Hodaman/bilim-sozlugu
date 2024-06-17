@@ -49,3 +49,11 @@ body{
 .dark .post-content a{
     color: rgb(175, 71, 71);
 }
+
+.dark .post-content > p > span{
+    color: #e5e7eb !important;
+}
+
+.dark h1 span, .dark h2 span, .dark h3 span {
+    color: #e5e7eb !important;
+}

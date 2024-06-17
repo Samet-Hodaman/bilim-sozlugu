@@ -13,6 +13,7 @@ export const create = async (req, res, next) => {
     .join('-')
     .toLowerCase()
     .replace(/[^a-zA-Z0-9-]/g, '')
+
   const newPost = new Post({
     ...req.body,
     slug,
@@ -36,6 +37,7 @@ export const getPosts = async (req, res, next) => {
       ...(req.query.category && { category: req.query.category }),
       ...(req.query.slug && { slug: req.query.slug }),
       ...(req.query.postId && { _id: req.query.postId }),
+      ...(req.query.author && { author: req.query.author}),
       ...(req.query.searchTerm && {
         $or: [
           { title: { $regex: req.query.searchTerm, $options: 'i' } },

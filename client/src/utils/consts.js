@@ -66,3 +66,22 @@ export const ABOUT_CONTENT = [
       content: "Bilim Sözlüğü platformu, bilimsel bilgiyi paylaşma ve bilimseverleri bir araya getirme amacıyla kurulmuş bir topluluktur. Bu hedefe ulaşmak için farklı yeteneklere sahip birçok insanın bir araya gelmesi gerekmektedir. İşte bu nedenle, Bilim Sözlüğü bünyesinde çeşitli departmanlar ve ekip sistemleri oluşturulmuştur. \nBu departmanlar ve ekip sistemleri, Bilim Sözlüğü'nün çok yönlü bir yapıya sahip olmasını sağlar. Bilim Sözlüğü'nün başarısının arkasındaki güç, bu farklı yeteneklere sahip ekiplerin bir araya gelmesi ve bilimi daha geniş kitlelere ulaştırma arzusudur. Birlikte, bilimin izinde daima ileriye yürümeye devam edeceğiz."
   }
 ]
+
+export const AUTHOR_LIST = [
+  {
+    name: 'Umut Aken',
+    category: 'fizik',
+  },
+  {
+    name: 'Samet Hodaman',
+    category: 'kimya',
+  },
+  {
+    name: 'Sudenaz Şencan',
+    category: 'biyoloji',
+  },
+  {
+    name: 'Merve Temiz',
+    category: 'fizik',
+  }
+]

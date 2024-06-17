@@ -6,6 +6,7 @@ import userRoutes from './routes/user.route.js'
 import authRoutes from './routes/auth.route.js'
 import postRoutes from './routes/post.route.js'
 import commentRoutes from './routes/comment.route.js'
+import mailRoutes from './routes/mail.route.js'
 import cookieParser from 'cookie-parser'
 import path from 'path'
 
@@ -15,8 +16,6 @@ mongoose
   .connect(process.env.CONNECTION_STRING)
   .then(() => console.log("MongoDb is connected."))
   .catch((err) => console.log(err))
-
-
 
 const __dirname = path.resolve()
 const PORT = 8000
@@ -39,6 +38,7 @@ app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/post', postRoutes)
 app.use('/api/comment', commentRoutes)
+app.use('/api/mail', mailRoutes)
 
 app.use(express.static(path.join(__dirname, '/client/dist')))
 

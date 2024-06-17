@@ -12,6 +12,8 @@ export default function Contents() {
         const data = await res.json()
         if (res.ok) {
           setPosts(data.posts);
+          if (posts && (posts.length < 12))
+            setShowMore(false)
         }
       } catch (error) {
         console.log(error.message);

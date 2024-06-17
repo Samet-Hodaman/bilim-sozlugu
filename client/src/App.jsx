@@ -14,6 +14,7 @@ import OnlyEditorPrivateRoute from "./components/OnlyEditorPrivateRoute";
 import UpdatePost from "./pages/UpdatePost";
 import PostPage from "./pages/PostPage";
 import ScrollToTap from "./components/ScrollToTap";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/hakkimizda' element={<About />} />
         <Route path="/giris-yap" element={<SignIn />} />
         <Route path="/kayit-ol" element={<SignUp />} />
+        <Route path="/ara" element={<Search />} />
         <Route path='/icerikler' element={<Contents />} />
         <Route element={<PrivateRoute />} >
           <Route path='/kontrol-paneli' element={<Dashboard />} />

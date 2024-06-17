@@ -67,11 +67,7 @@ export default function PostPage() {
       } 
     }
 
-    if (!loading ) {
-      scrollToComment()
-    }
-  }, [commentId, loading])
-
+    if (!loading ) { scrollToComment() } }, [commentId, loading])
 
   if (loading) { return (
     <div className='flex justify-center items-center min-h-screen'>
@@ -80,16 +76,19 @@ export default function PostPage() {
   )}
   
   return (
-    <main className='lg:text p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
+  <main className='lg:text p-3 flex flex-col max-w-6xl mx-auto min-h-screen'>
     <h1 className='text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl'>
       {post && post.title}
     </h1>
+    {/** Category section */}
     <Link 
       to={`/search?category=${post && post.category}`}
       className='self-center mt-5'
     >
       <Button color='gray' pill size='xs'>{post && post.category}</Button>
     </Link>
+    {/** */}
+    {/** Image section */}
     <img 
       src={post && post.image} 
       alt={post && post.title} 
@@ -99,9 +98,20 @@ export default function PostPage() {
       <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
       <span className='italic'>{post && (post.content.length / 1000).toFixed(0)} mins read</span>
     </div>
-    <div className='p-3 max-w-4xl mx-auto w-full post-content text-indent' dangerouslySetInnerHTML={{__html: post && post.content}}>
+    {/** */}
+    {/** Content Text section */}
+    <div 
+      className='p-3 max-w-5xl mx-auto w-full post-content text-indent !dark:text-white' 
+      dangerouslySetInnerHTML={{__html: post && post.content}}   
+    />
+    {/** */}
+    <Link
+      to={`/search?author=${post && post.author}`}
+      className='flex w-full gap-1 p-3 items-center justify-end '>
+      <span className='text-sm'>Yazar:</span>
+      <Button color='gray' className='border-none' pill size='xs'>{post && post.author}</Button>
+    </Link>
 
-    </div>
     <div className='max-w-4xl mx-auto w-full'>
       <CallToAction />
     </div>
@@ -118,6 +128,6 @@ export default function PostPage() {
         }
       </div>
     </div>
-    </main>
+  </main>
   )
 }

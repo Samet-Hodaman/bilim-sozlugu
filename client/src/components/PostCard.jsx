@@ -1,27 +1,6 @@
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 export default function PostCard({post}) {
-  const [ user, setUser ] = useState(null)
-
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const res = await fetch(`/api/user/${post.userId}`)
-        const data = await res.json()
-        if (res.ok) {
-          setUser(data)
-        } else {
-          console.log("Error");
-        }
-      } catch {
-  
-      }
-    }
-
-    getUser()
-
-  }, [])
   return (
     <div className="group relative w-full border border-teal-500 hover:border-2 h-[400px] overflow-hidden rounded-lg sm:w-[360px] transition-all ">
       <Link to={`/post/${post.slug}`}>
@@ -38,8 +17,16 @@ export default function PostCard({post}) {
         <span className="italic text-sm">
           {post.category}
         </span>
-      {user && (
-        <div >içerik yazarı: <span className="text-base font-bold cursor-pointer">@{user.username}</span></div>
+      {post && (
+        <div className="flex items-center gap-1">
+          Yazar: 
+          <Link 
+            to={`/ara?author=${post.author}`}
+            className="text-sm font-bold cursor-pointer"
+          >
+            {post.author}
+          </Link>
+        </div>
       )}
         <Link 
           to={`/post/${post.slug}`} 

@@ -3,7 +3,7 @@ import { HiAnnotation, HiArrowNarrowUp, HiDocumentText, HiOutlineUserGroup } fro
 import { useSelector, useDispatch } from 'react-redux'
 import { Button, Table } from 'flowbite-react'
 import { Link, useNavigate } from 'react-router-dom'
-import { signoutSuccess } from "../redux/user/userSlice"
+import { signoutSuccess } from "../../redux/user/userSlice"
 
 export default function DashboardComp() {
   const { currentUser, access_token } = useSelector((state) => state.user)
@@ -18,7 +18,6 @@ export default function DashboardComp() {
   const [ lastMonthComments, setLastMonthComments ] = useState(0)
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  
 
   const handleGoComment = async (comment) => {
     try {
@@ -28,13 +27,10 @@ export default function DashboardComp() {
         console.log(data);
         navigate(`/post/${data.posts[0].slug}`)
       }
-
     } catch (error) {
       console.log(error.message);
     }
-    
   }
-
   
   useEffect(() => {
     const fetchUsers = async () => {
@@ -60,6 +56,7 @@ export default function DashboardComp() {
         console.log(error.message);
       }
     }
+    
     const fetchPosts = async () => {
       try {
         const res = await fetch('/api/post/getposts?limit=5')
@@ -230,7 +227,7 @@ export default function DashboardComp() {
               Son paylaşımlar
             </h1>
             <Button outline gradientDuoTone='purpleToPink'>
-              <Link to={'/kontrol-paneli?tab=yorumlar'}>
+              <Link to={'/icerikler'}>
                 Hepsini gör
               </Link>
             </Button>
