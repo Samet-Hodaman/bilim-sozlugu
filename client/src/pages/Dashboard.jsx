@@ -6,7 +6,6 @@ import DashPosts from "../components/dash/DashPosts"
 import DashUsers from "../components/dash/DashUsers"
 import DashComments from "../components/dash/DashComments"
 import DashboardComp from "../components/dash/DashboardComp"
-import DashMail from "../components/dash/DashMail"
 
 export default function Dashboard() {
   const location = useLocation()
@@ -29,7 +28,6 @@ export default function Dashboard() {
 		{tab === 'gonderilerim' && <DashPosts />}
 		{tab === 'kullanicilar' && <DashUsers />}
 		{tab === 'yorumlar' && <DashComments />}
-		{tab === 'notlarım' && <DashMail />}
   </div>
   )
 }

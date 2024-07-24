@@ -1,6 +1,6 @@
 import { Sidebar } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
-import { HiAnnotation, HiArrowSmRight, HiChartPie, HiDocumentText, HiMail, HiOutlineMail, HiOutlineUserGroup, HiUser } from 'react-icons/hi'
+import { HiAnnotation, HiArrowSmRight, HiChartPie, HiDocumentText, HiOutlineUserGroup, HiUser } from 'react-icons/hi'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom'
 import { signoutSuccess } from '../../redux/user/userSlice';
@@ -87,15 +87,6 @@ export default function DashSidebar() {
               as='div'
             >
               Yorumlarım
-            </Sidebar.Item>
-          </Link>
-          <Link to='/kontrol-paneli?tab=notlarım'>
-            <Sidebar.Item 
-              icon={HiOutlineMail} 
-              labelColor='dark' 
-              className='cursor-pointer'
-            >
-              Notlarım
             </Sidebar.Item>
           </Link>
           <Sidebar.Item 

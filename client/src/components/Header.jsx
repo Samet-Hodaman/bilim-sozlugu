@@ -76,7 +76,7 @@ export default function Header() {
 					</Navbar.Link>
 				</Link>
 				<Link to='/hakkimizda'>
-					<Navbar.Link active={path === '/hakkinda'} as={'div'} to='/hakkimizda'>
+					<Navbar.Link active={path === '/hakkimizda'} as={'div'} to='/hakkimizda'>
 						Hakkımızda
 					</Navbar.Link>
 				</Link>
