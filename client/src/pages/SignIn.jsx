@@ -67,7 +67,7 @@ export default function SignIn() {
             <img src={logoURL} alt='img' className='ml-2 w-20 '/>
           </Link>
           <p className='text-sm mt-5'>
-            Burada aciklayici veya havali bir yazi olacak... 
+            Bilimseverlerin buluşma paneli
           </p>
         </div>
       
